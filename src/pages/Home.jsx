@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 import ProductList from './ProductList';
 import { APIURL } from '../env';
 
 const Home = () => {
     const [products, setProducts] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         try{
@@ -17,6 +19,13 @@ const Home = () => {
             console.log(error.message);
         }
         }, []);
+
+        const handleViewDetails = () => {
+            if (products.length > 0) {
+                navigate(`/product-detail/${products[0].id}`);
+            }
+        };
+
     return (
         <>
             <section className="banner">
@@ -25,7 +34,7 @@ const Home = () => {
                         <div className="col-md-7">
                             <p>Latest collection</p>
                             <h1 className='display-4'><strong>{products.length > 0 && products[0].title}</strong> </h1> 
-                            <button className='btn btn-danger mt-3'>View Details</button>
+                            <button onClick={handleViewDetails} className='btn btn-danger mt-3'>View Details</button>
                         </div>
                         <div className="col-md-4">
                             <img src={products.length > 0 && products[0].image} alt={products.length > 0 && products[0].title} className='img-fluid' />
