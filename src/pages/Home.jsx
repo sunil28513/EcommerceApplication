@@ -23,7 +23,7 @@ const Home = () => {
                 <div className="container py-4">
                     <div className="row align-items-center justify-content-between">
                         <div className="col-md-7">
-                            <p>Starting at ${products.length > 0 && products[0].price}</p>
+                            <p>Latest collection</p>
                             <h1 className='display-4'><strong>{products.length > 0 && products[0].title}</strong> </h1> 
                             <button className='btn btn-danger mt-3'>View Details</button>
                         </div>
