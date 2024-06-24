@@ -11,13 +11,17 @@ const ProductList = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const fetchProduct = async () => {
-            const res = await fetch(`${APIURL}/products`);
-            const data = await res.json();
-            setProducts(data);
-        };
-        fetchProduct();
-    }, []); // Empty dependency array to run only once
+        try{
+            const fetchProduct = async () => {
+                const res = await fetch(`${APIURL}/products`);
+                const data = await res.json();
+                setProducts(data);
+            };
+            fetchProduct();
+        }catch(error){
+            console.log(error.message);
+        }
+     }, []);
 
     const handleAdd = (product) => {
         dispatch(add(product));
@@ -28,7 +32,7 @@ const ProductList = () => {
             [product.id]: true
         }));
     };
-
+    
     const handleImageClick = (id) => {
         navigate(`/product-detail/${id}`);
     };

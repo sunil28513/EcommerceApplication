@@ -6,13 +6,17 @@ const Home = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        const fetchProduct = async () => {
-            const res = await fetch(`${APIURL}/products/1`);
-            const data = await res.json();
-            setProducts([data]);  // Set the fetched product data in the state
-        };
-        fetchProduct();
-    }, []);
+        try{
+            const fetchProduct = async () => {
+                const res = await fetch(`${APIURL}/products/1`);
+                const data = await res.json();
+                setProducts([data]); 
+            };
+            fetchProduct();
+        }catch (error) {
+            console.log(error.message);
+        }
+        }, []);
     return (
         <>
             <section className="banner">

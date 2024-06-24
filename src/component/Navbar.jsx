@@ -12,8 +12,11 @@ const Navbar = () => {
       <header className='header fixed-top'>
         <div className="container">
           <div style={{display:'flex', alignItems:'center', justifyContent:'space-between'}}>
-                <Link className='logo m-0' to={"/"}>TrendTrove</Link>
-                <Link className='me-2 position-relative' to={"cart"}> <IoBagHandleSharp style={{fontSize:'1.5rem'}}/> <div className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>{items.length}</div> </Link>
+              <Link className='logo m-0' to={"/"}>E-Commerce</Link>
+              <Link className='me-2 position-relative' to={"cart"}> 
+                  <IoBagHandleSharp style={{fontSize:'1.5rem'}}/> 
+                  <div className='position-absolute top-0 badge bg-danger'>{items.length}</div> 
+              </Link>
           </div>
         </div>
       </header>

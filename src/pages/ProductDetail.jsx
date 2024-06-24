@@ -12,12 +12,16 @@ const ProductDetail = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const fetchProduct = async () => {
-            const res = await fetch(`${APIURL}}/products/${id}`);
-            const data = await res.json();
-            setProduct(data);
-        };
-        fetchProduct();
+        try{
+            const fetchProduct = async () => {
+                const res = await fetch(`${APIURL}/products/${id}`);
+                const data = await res.json();
+                setProduct(data);
+            };
+            fetchProduct();
+        }catch(error){
+            console.log(error)
+        }
     }, [id]);
 
     if (!product) return <div>Loading...</div>;
