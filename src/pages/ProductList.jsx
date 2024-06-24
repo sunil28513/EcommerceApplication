@@ -40,7 +40,7 @@ const ProductList = () => {
   return (
     <>
         {products.map((product) => (
-            <div className="col-md-3 mb-4" key={product.id}>
+            <div className="col-lg-3 col-md-4 col-sm-6 mb-4" key={product.id}>
                 <div className='card productlistcard h-100'>
                     <div className='p-3' onClick={() => handleImageClick(product.id)}
                           style={{ cursor: 'pointer' }}>
